@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Navbar</title>
+  <style>
+    :root {
+      --primary: #0d47a1;
+      --primary-light: #1565c0;
+      --text-dark: #222;
+      --white: #ffffff;
+    }
+
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Navbar */
+    header {
+      background: var(--white);
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header .logo {
+      font-size: 1.4em;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    header nav {
+      flex: 1;
+      text-align: center;
+    }
+
+    header nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: bold;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+
+    header nav a:hover {
+      background: var(--primary-light);
+      color: var(--white);
+    }
+
+    header nav a.active {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    header .btn {
+      padding: 8px 15px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 5px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    header .btn:hover {
+      background: var(--primary-light);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Portfolio</div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="experience.html">Experience</a>
+      <a href="skills.html">Skills</a>
+      <a href="certifications.html">Certifications</a>
+      <a href="research.html">Research</a>
+      <a href="education.html">Education</a>
+      <a href="achievements.html">Achievements</a>
+    </nav>
+    <a href="contact.html" class="btn">Contact</a>
+  </header>
+</body>
+</html>

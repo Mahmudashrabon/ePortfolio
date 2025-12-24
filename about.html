@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+  <style>
+    :root {
+      --primary: #0d47a1; /* Deep Blue */
+      --primary-light: #1565c0; /* Bright Blue */
+      --text-dark: #222;
+      --white: #ffffff;
+      --bg-light: #f9fafb;
+      --navy-blue: #001f54; /* Navy Blue */
+      --dark-blue: #003366; /* Dark Blue */
+    }
+
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e0f2fe, #f9fafb);
+      color: #343a40;
+    }
+
+    /* Navbar */
+    header {
+      background: var(--white);
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header .logo {
+      font-size: 1.4em;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    header nav {
+      flex: 1;
+      text-align: center;
+    }
+
+    header nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: bold;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+
+    header nav a:hover {
+      background: var(--primary-light);
+      color: var(--white);
+    }
+
+    header nav a.active {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    header .btn {
+      padding: 8px 15px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 5px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    header .btn:hover {
+      background: var(--primary-light);
+    }
+
+    /* Page Container */
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    /* Header Section */
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .header h1 {
+      font-size: 3em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    .header p {
+      font-size: 1.1em;
+      color: var(--navy-blue);
+      font-weight: 500;
+    }
+
+    /* Header Logo/Icon (Top Right) */
+    .logo-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #28a745;
+      color: white;
+      font-size: 1.2em;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Content Layout */
+    .content-layout {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    /* Main Text Area */
+    .main-text {
+      flex: 2;
+      line-height: 1.7;
+      font-size: 1em;
+    }
+
+    .main-text p {
+      margin-bottom: 20px;
+    }
+
+    /* Current Focus Box */
+    .focus-box {
+      flex: 1;
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      align-self: flex-start;
+      border-top: 4px solid var(--primary);
+    }
+
+    .focus-box h3 {
+      font-size: 1.5em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 0;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .focus-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .focus-box ul li {
+      margin-bottom: 12px;
+      font-size: 1.05em;
+      font-weight: bold;
+      color: #1a1a1a;
+    }
+
+    .focus-box ul li::before {
+      content: '▹';
+      color: var(--primary-light);
+      font-size: 1.2em;
+      margin-right: 8px;
+    }
+
+    /* Stats Section */
+    .stats-section {
+      display: flex;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .stat-box {
+      flex: 1;
+      background-color: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      border: 1px solid #e9ecef;
+    }
+
+    .stat-number {
+      font-size: 2.2em;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    /* Both numbers use the same dark blue */
+    .stat-number.projects,
+    .stat-number.gpa {
+      color: var(--dark-blue);
+    }
+
+    .stat-label {
+      font-size: 1em;
+      font-weight: bold;
+      color: #1a1a1a;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .content-layout {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .header h1 {
+        font-size: 2.5em;
+      }
+
+      .header p {
+        padding: 0 10px;
+      }
+
+      .logo-icon {
+        top: -30px;
+        right: 10px;
+      }
+
+      .focus-box {
+        order: -1;
+      }
+
+      .stats-section {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="logo">Portfolio</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="project.html">Projects</a>
+      <a href="experience.html">Experience</a>
+      <a href="skill.html">Skills</a>
+      <a href="certificate.html">Certifications</a>
+      <a href="research.html">Research</a>
+      <a href="education.html">Education</a>
+      <a href="achivement.html">Achievements</a>
+    </nav>
+    <a href="contact.html" class="btn">Contact</a>
+  </header>
+
+  <!-- About Page Content -->
+  <div class="container">
+    <div class="header">
+      <h1>About Me</h1>
+      <p>Passionate about technology and driven by curiosity to solve complex problems.</p>
+      <div class="logo-icon">M</div>
+    </div>
+
+    <div class="content-layout">
+      <div class="main-text">
+        <p>
+  I'm an undergraduate <strong>Computer Science and Engineering student</strong> at
+  <strong>Daffodil International University (DIU)</strong>, with a strong passion for
+  <strong>Machine Learning</strong>, <strong>Deep Learning</strong>, <strong>Computer Vision</strong>,
+  <strong>Natural Language Processing</strong>, and <strong>Artificial Intelligence</strong>. My journey in tech started with curiosity
+  and has grown into a commitment to exploring innovative research and building intelligent solutions.
+</p>
+<p>
+  When I'm not studying or researching, you'll find me <strong>working on AI projects</strong>,
+  <strong>experimenting with new technologies</strong>, or <strong>enhancing my skills in cutting-edge AI fields</strong>.
+</p>
+
+
+        <div class="stats-section">
+          <div class="stat-box">
+            <div class="stat-number projects">20+</div>
+            <div class="stat-label">Projects Completed</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number gpa">3.88</div>
+            <div class="stat-label">GPA</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="focus-box">
+        <h3>Current Focus</h3>
+        <ul>
+          <li>Machine Learning & AI</li>
+          <li>Full-Stack Web Development</li>
+          <li>Mobile App Development</li>
+          <li>Cloud Computing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

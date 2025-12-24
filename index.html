@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Mahmuda Islam</title>
+  <style>
+    :root {
+      --primary: #1e3a8a; /* Deep Blue */
+      --primary-light: #2563eb; /* Bright Blue */
+      --accent: #0ea5e9; /* Cyan Accent */
+      --text-dark: #1f2937; /* Dark Gray */
+      --text-light: #6b7280; /* Light Gray */
+      --bg-light: #f9fafb;
+      --white: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    header {
+      background: var(--white);
+      padding: 12px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.4em;
+      color: var(--primary);
+    }
+
+    header nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+
+    header nav a:hover {
+      background: var(--primary-light);
+      color: var(--white);
+    }
+
+    header nav a.active {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    header .btn {
+      padding: 8px 16px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 6px;
+      text-decoration: none;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+    header .btn:hover {
+      background: var(--primary-light);
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 70px 20px;
+      gap: 40px;
+    }
+
+    .hero-content {
+      flex: 1;
+      min-width: 300px;
+      padding: 10px 20px;
+    }
+
+    .hero-content p {
+      font-size: 1em;
+      color: var(--text-light);
+    }
+
+    .hero-content h1 {
+      font-size: 2.8em;
+      margin: 8px 0;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .hero-content h3 {
+      margin-bottom: 20px;
+      color: var(--primary-light);
+      font-weight: 600;
+    }
+
+    .hero-content .buttons {
+      margin-top: 25px;
+    }
+
+    .hero-content .buttons a {
+      display: inline-block;
+      margin: 5px;
+      padding: 10px 20px;
+      background: var(--primary);
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 6px;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+    .hero-content .buttons a:hover {
+      background: var(--primary-light);
+    }
+
+    /* Profile Image */
+    .profile-section {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      min-width: 280px;
+      padding: 10px;
+    }
+
+    .profile-image {
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      box-shadow: 0 4px 20px rgba(14, 165, 233, 0.3);
+      object-fit: cover;
+    }
+
+    /* Section Defaults */
+    section {
+      padding: 50px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 35px;
+      color: var(--primary);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--white);
+      margin-top: 40px;
+      border-top: 1px solid #e5e7eb;
+      color: var(--text-dark);
+      font-size: 0.9em;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 20px;
+      }
+
+      header nav {
+        margin-top: 8px;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+      }
+
+      .hero-content h1 {
+        font-size: 2.2em;
+      }
+
+      .profile-image {
+        width: 240px;
+        height: 240px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="logo">Portfolio</div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="project.html">Projects</a>
+      <a href="experience.html">Experience</a>
+      <a href="skill.html">Skills</a>
+      <a href="certificate.html">Certifications</a>
+      <a href="research.html">Research</a>
+      <a href="education.html">Education</a>
+      <a href="achivement.html">Achievements</a>
+    </nav>
+    <a href="contact.html" class="btn">Contact</a>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <p>Hello, I'm</p>
+      <h1>Mahmuda Islam</h1>
+      <h3>Computer Science Student | Engineer</h3>
+      <p>
+        A Computer Science and Engineering student passionate about AI, ML, Deep Learning, NLP, and Computer Vision,
+        focused on research and building intelligent systems for real-world impact.
+      </p>
+      <div class="buttons">
+        <a href="#projects">View My Work</a>
+        <a href="resume.pdf" download>Download Resume</a>
+      </div>
+    </div>
+    <div class="profile-section">
+      <img src="Image/portfolio pic.jpg" alt="Profile picture of Mahmuda Islam" class="profile-image">
+    </div>
+  </section>
+</body>
+
+</html>

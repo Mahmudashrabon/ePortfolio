@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Certificates</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #0d47a1;
+      --primary-light: #1565c0;
+      --text-dark: #222;
+      --white: #ffffff;
+    }
+
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8faff;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Navbar */
+    header {
+      background: var(--white);
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header .logo {
+      font-size: 1.4em;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    header nav {
+      flex: 1;
+      text-align: center;
+    }
+
+    header nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: bold;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+
+    header nav a:hover {
+      background: var(--primary-light);
+      color: var(--white);
+    }
+
+    header nav a.active {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    header .btn {
+      padding: 8px 15px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 5px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    header .btn:hover {
+      background: var(--primary-light);
+    }
+
+    /* Top Statistics Grid */
+    .top-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+      margin-bottom: 60px;
+    }
+
+    .stat-card {
+      background-color: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      border: 1px solid #eef2f6;
+    }
+
+    .stat-card .icon-wrapper {
+      font-size: 2.5em;
+      margin-bottom: 15px;
+    }
+
+    .stat-card:nth-child(1) .icon-wrapper {
+      color: #3498db;
+    }
+
+    .stat-card:nth-child(2) .icon-wrapper {
+      color: #2ecc71;
+    }
+
+    .stat-card:nth-child(3) .icon-wrapper {
+      color: #2980b9;
+    }
+
+    .stat-card:nth-child(4) .icon-wrapper {
+      color: #2ecc71;
+    }
+
+    .stat-card .number {
+      font-size: 2.2em;
+      font-weight: 700;
+      color: #3498db;
+      margin-bottom: 5px;
+    }
+
+    .stat-card:nth-child(4) .number {
+      color: #2ecc71;
+    }
+
+    .stat-card .label {
+      font-size: 0.9em;
+      color: #7f8c8d;
+    }
+
+    /* Certification Journey */
+    .certification-journey {
+      background-color: #f0fff0;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.04);
+      margin-bottom: 60px;
+      text-align: center;
+      border: 1px solid #d4edda;
+    }
+
+    .certification-journey h2 {
+      font-size: 2em;
+      color: #3498db;
+      margin-bottom: 20px;
+    }
+
+    .certification-journey .summary-text {
+      font-size: 1em;
+      line-height: 1.7;
+      color: #555;
+      max-width: 900px;
+      margin: 0 auto 30px;
+      font-weight: 700; /* bold summary paragraph */
+    }
+
+    .tag-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .skill-tag {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      font-weight: 600;
+      border: 1px solid #c3e6cb;
+    }
+
+    /* Certificate Grid */
+    .certificate-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 30px;
+    }
+
+    .certificate-card {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+      border-top: 5px solid #2ecc71;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .certificate-card .main-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .certificate-card .title {
+      font-size: 1.4em;
+      font-weight: 700;
+      color: #2c3e50;
+    }
+
+    .certificate-card .check-icon {
+      color: #2ecc71;
+      font-size: 1.5em;
+    }
+
+    .certificate-card .issuer {
+      font-size: 1em;
+      color: #6c757d;
+      font-weight: 500;
+    }
+
+    .certificate-card .professional-tag {
+      background-color: #cfe2ff;
+      color: #084298;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.85em;
+      font-weight: 500;
+      margin-right: 15px;
+    }
+
+    .certificate-card .date-info {
+      display: inline-flex;
+      align-items: center;
+      color: #7f8c8d;
+      font-size: 0.9em;
+    }
+
+    .certificate-card .date-info i {
+      margin-right: 5px;
+      color: #7f8c8d;
+    }
+
+    .certificate-card .skills-covered {
+      margin-top: 15px;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+    }
+
+    .skill-chip {
+      display: inline-block;
+      background-color: #e3f2fd;
+      color: #2196f3;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.8em;
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+
+    .skill-chip.green {
+      background-color: #e0f7fa;
+      color: #00bcd4;
+    }
+
+    .skill-chip.yellow {
+      background-color: #fff3e0;
+      color: #ff9800;
+    }
+
+    .skill-chip.purple {
+      background-color: #ede7f6;
+      color: #673ab7;
+    }
+
+    .skill-chip.red {
+      background-color: #ffebee;
+      color: #f44336;
+    }
+
+    .certificate-card .credential-id {
+      font-size: 0.85em;
+      color: #999;
+    }
+
+    .certificate-card .verify-link {
+      text-decoration: none;
+      color: #3498db;
+      font-weight: 600;
+      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .certificate-card .verify-link i {
+      margin-left: 5px;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .certificate-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .top-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 576px) {
+      .certificate-card {
+        padding: 20px;
+      }
+
+      .certificate-card .title {
+        font-size: 1.2em;
+      }
+
+      .certificate-card .main-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="logo">Portfolio</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="experience.html">Experience</a>
+      <a href="skill.html">Skills</a>
+      <a href="certifications.html" class="active">Certifications</a>
+      <a href="research.html">Research</a>
+      <a href="education.html">Education</a>
+      <a href="achivement.html">Achievements</a>
+    </nav>
+    <a href="contact.html" class="btn">Contact</a>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Header Section with inline CSS -->
+    <section class="header" style="text-align:center; margin:50px 0;">
+      <h1 style="font-size:3.5em; font-weight:700; color:#0d47a1; margin-bottom:15px;">
+        Professional <span style="color:#0d47a1;">Certificates</span>
+      </h1>
+      <p style="font-size:1.1em; color:#7f8c8d; max-width:800px; margin:0 auto; line-height:1.6; font-weight:700;">
+        Continuously expanding knowledge through industry-recognized certifications
+        in cloud computing, AI/ML, cybersecurity, and software development.
+      </p>
+    </section>
+
+    <!-- Top Stats -->
+    <section class="top-stats-grid">
+      <div class="stat-card">
+        <div class="icon-wrapper"><i class="fas fa-certificate"></i></div>
+        <div class="number">15</div>
+        <div class="label">Total Certificates</div>
+      </div>
+      <div class="stat-card">
+        <div class="icon-wrapper"><i class="fas fa-check-circle"></i></div>
+        <div class="number">4</div>
+        <div class="label">Professional Level</div>
+      </div>
+      <div class="stat-card">
+        <div class="icon-wrapper"><i class="fas fa-calendar-alt"></i></div>
+        <div class="number">2025</div>
+        <div class="label">Latest Certification</div>
+      </div>
+      <div class="stat-card">
+        <div class="icon-wrapper"><i class="fas fa-external-link-alt"></i></div>
+        <div class="number">100%</div>
+        <div class="label">Verified</div>
+      </div>
+    </section>
+
+    <!-- Certification Journey -->
+     
+    <section class="certification-journey">
+      <h2>Certification Journey</h2>
+      <p class="summary-text">
+        My certification journey reflects a commitment to continuous learning and staying current with industry trends.
+        Each certificate represents hands-on experience and validated expertise in cutting-edge technologies.
+      </p>
+      <div class="tag-list">
+        <span class="skill-tag">Cloud Computing</span>
+        <span class="skill-tag">ML/DL</span>
+        <span class="skill-tag">AI</span>
+        <span class="skill-tag">Computer Vision</span>
+        <span class="skill-tag">Natural Language Processing</span>
+        <span class="skill-tag">Databases</span>
+      </div>
+    </section>
+
+   <!-- Certificate Cards Section -->
+    <!-- AI Research & Deep Learning Certificate -->
+<div class="certificate-card">
+  <div class="main-info">
+    <div class="title">AI Research & Deep Learning</div>
+    <i class="fas fa-check-circle check-icon"></i>
+  </div>
+  <div class="issuer">Coursera / DIU</div>
+  <div class="metadata">
+    <span class="professional-tag">Professional</span>
+    <span class="date-info"><i class="fas fa-calendar-alt"></i> 2025</span>
+  </div>
+  <div class="skills-covered">
+    <strong>Skills Covered:</strong>
+    <span class="skill-chip green">Deep Learning</span>
+    <span class="skill-chip yellow">Neural Networks</span>
+    <span class="skill-chip purple">AI Research</span>
+  </div>
+  <div class="credential-id">Credential ID: AI-DL-2025-006</div>
+  <a href="#" class="verify-link">Verify Certificate <i class="fas fa-external-link-alt"></i></a>
+</div>
+
+<section class="certificate-grid">
+  <!-- AI & ML Certificate -->
+  <div class="certificate-card">
+    <div class="main-info">
+      <div class="title">Artificial Intelligence & Machine Learning</div>
+      <i class="fas fa-check-circle check-icon"></i>
+    </div>
+    <div class="issuer">Coursera / DIU</div>
+    <div class="metadata">
+      <span class="professional-tag">Professional</span>
+      <span class="date-info"><i class="fas fa-calendar-alt"></i> 2024</span>
+    </div>
+    <div class="skills-covered">
+      <strong>Skills Covered:</strong>
+      <span class="skill-chip">AI Fundamentals</span>
+      <span class="skill-chip green">Machine Learning</span>
+      <span class="skill-chip yellow">Deep Learning</span>
+    </div>
+    <div class="credential-id">Credential ID: AI-ML-2024-001</div>
+    <a href="#" class="verify-link">Verify Certificate <i class="fas fa-external-link-alt"></i></a>
+  </div>
+
+  <!-- NLP Certificate -->
+  <div class="certificate-card">
+    <div class="main-info">
+      <div class="title">Natural Language Processing</div>
+      <i class="fas fa-check-circle check-icon"></i>
+    </div>
+    <div class="issuer">Coursera / DIU</div>
+    <div class="metadata">
+      <span class="professional-tag">Professional</span>
+      <span class="date-info"><i class="fas fa-calendar-alt"></i> 2024</span>
+    </div>
+    <div class="skills-covered">
+      <strong>Skills Covered:</strong>
+      <span class="skill-chip green">NLP Basics</span>
+      <span class="skill-chip yellow">Text Processing</span>
+      <span class="skill-chip">Transformers</span>
+    </div>
+    <div class="credential-id">Credential ID: NLP-2024-002</div>
+    <a href="#" class="verify-link">Verify Certificate <i class="fas fa-external-link-alt"></i></a>
+  </div>
+
+  <!-- Computer Vision Certificate -->
+  <div class="certificate-card">
+    <div class="main-info">
+      <div class="title">Computer Vision</div>
+      <i class="fas fa-check-circle check-icon"></i>
+    </div>
+    <div class="issuer">Udemy / DIU</div>
+    <div class="metadata">
+      <span class="professional-tag">Professional</span>
+      <span class="date-info"><i class="fas fa-calendar-alt"></i> 2023</span>
+    </div>
+    <div class="skills-covered">
+      <strong>Skills Covered:</strong>
+      <span class="skill-chip purple">OpenCV</span>
+      <span class="skill-chip green">Image Processing</span>
+      <span class="skill-chip">Object Detection</span>
+    </div>
+    <div class="credential-id">Credential ID: CV-2023-003</div>
+    <a href="#" class="verify-link">Verify Certificate <i class="fas fa-external-link-alt"></i></a>
+  </div>
+
+  <!-- Database Certificate -->
+  <div class="certificate-card">
+    <div class="main-info">
+      <div class="title">Database Management Systems</div>
+      <i class="fas fa-check-circle check-icon"></i>
+    </div>
+    <div class="issuer">DIU / Coursera</div>
+    <div class="metadata">
+      <span class="professional-tag">Professional</span>
+      <span class="date-info"><i class="fas fa-calendar-alt"></i> 2023</span>
+    </div>
+    <div class="skills-covered">
+      <strong>Skills Covered:</strong>
+      <span class="skill-chip red">SQL</span>
+      <span class="skill-chip yellow">NoSQL</span>
+      <span class="skill-chip purple">Database Design</span>
+    </div>
+    <div class="credential-id">Credential ID: DB-2023-004</div>
+    <a href="#" class="verify-link">Verify Certificate <i class="fas fa-external-link-alt"></i></a>
+  </div>
+
+  <!-- Cloud Computing Certificate -->
+  <div class="certificate-card">
+    <div class="main-info">
+      <div class="title">Cloud Computing Fundamentals</div>
+      <i class="fas fa-check-circle check-icon"></i>
+    </div>
+    <div class="issuer">Coursera / DIU</div>
+    <div class="metadata">
+      <span class="professional-tag">Professional</span>
+      <span class="date-info"><i class="fas fa-calendar-alt"></i> 2024</span>
+    </div>
+    <div class="skills-covered">
+      <strong>Skills Covered:</strong>
+      <span class="skill-chip green">AWS</span>
+      <span class="skill-chip yellow">Azure</span>
+      <span class="skill-chip">Cloud Services</span>
+    </div>
+    <div class="credential-id">Credential ID: CC-2024-005</div>
+    <a href="#" class="verify-link">Verify Certificate <i class="fas fa-external-link-alt"></i></a>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #0d47a1;
+      --primary-light: #1565c0;
+      --text-dark: #222;
+      --white: #ffffff;
+    }
+
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8faff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Navbar */
+    header {
+      background: var(--white);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    header nav {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    header nav a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+
+    header nav a:hover {
+      background: var(--primary-light);
+      color: var(--white);
+    }
+
+    header nav a.active {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    header .btn {
+      padding: 8px 15px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 5px;
+      text-decoration: none;
+      transition: 0.3s;
+      flex-shrink: 0;
+    }
+
+    header .btn:hover {
+      background: var(--primary-light);
+    }
+
+    /* Responsive Navbar */
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+      header nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+    /* Page Header */
+    .page-header {
+      text-align: center;
+      margin: 50px 0;
+    }
+
+    .page-header h1 {
+      font-size: 2.5em;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    .page-header h1 span {
+      color: var(--primary);
+    }
+
+    .page-header p {
+      font-size: 1.1em;
+      color: #7f8c8d;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      margin: 40px auto;
+      padding-left: 40px;
+      border-left: 3px solid var(--primary);
+    }
+
+    .timeline-item {
+      margin-bottom: 40px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -12px;
+      top: 5px;
+      width: 18px;
+      height: 18px;
+      background: var(--primary);
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 3px #bbdefb;
+    }
+
+    .timeline-item h3 {
+      font-size: 1.3em;
+      color: var(--primary-light);
+      margin-bottom: 5px;
+    }
+
+    .timeline-item .role {
+      font-size: 1.05em;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    .timeline-item .date {
+      font-size: 0.9em;
+      color: #777;
+      margin: 8px 0;
+      display: inline-block;
+    }
+
+    .timeline-item p {
+      font-size: 0.95em;
+      color: #555;
+    }
+
+    /* Responsive Timeline */
+    @media (max-width: 768px) {
+      .page-header h1 { font-size: 2em; }
+      .timeline { padding-left: 25px; }
+      .timeline-item { padding-left: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="logo">Portfolio</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="project.html">Projects</a>
+      <a href="experience.html" class="active">Experience</a>
+      <a href="skill.html">Skills</a>
+      <a href="certificate.html">Certifications</a>
+      <a href="research.html">Research</a>
+      <a href="education.html">Education</a>
+      <a href="achivement.html">Achievements</a>
+    </nav>
+    <a href="contact.html" class="btn">Contact</a>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <section class="page-header">
+      <h1>My <span>Experience</span></h1>
+      <p>A timeline of professional roles, internships, and hands-on projects that shaped my career path.</p>
+    </section>
+
+    <!-- Timeline -->
+    <section class="timeline">
+      <div class="timeline-item">
+        <h3>Software Engineer Intern</h3>
+        <div class="role">Tech Solutions Ltd</div>
+        <div class="date"><i class="fas fa-calendar-alt"></i> June 2024 – August 2024</div>
+        <p>Worked on full-stack web applications using React and Django, optimized database queries, and contributed to API development for a live project.</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Research Assistant</h3>
+        <div class="role">University AI Lab</div>
+        <div class="date"><i class="fas fa-calendar-alt"></i> Jan 2024 – May 2024</div>
+        <p>Assisted in developing a deep learning model for medical image analysis, achieving 92% accuracy. Published work in an international conference.</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Open Source Contributor</h3>
+        <div class="role">GitHub Projects</div>
+        <div class="date"><i class="fas fa-calendar-alt"></i> 2023 – Present</div>
+        <p>Contributed to open-source projects focusing on machine learning pipelines, bug fixes, and documentation improvements.</p>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>

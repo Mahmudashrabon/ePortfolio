@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Achievements</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #0d47a1; /* Blue theme */
+      --primary-light: #1565c0;
+      --text-dark: #222;
+      --white: #ffffff;
+      --bg-light: #f8faff;
+    }
+
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-light);
+      color: #333;
+    }
+
+    /* Navbar */
+    header {
+      background: var(--white);
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    header .logo {
+      font-size: 1.4em;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    header nav {
+      flex: 1;
+      text-align: center;
+    }
+
+    header nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: bold;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+
+    header nav a:hover {
+      background: var(--primary-light);
+      color: var(--white);
+    }
+
+    header nav a.active {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    header .btn {
+      padding: 8px 15px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 5px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    header .btn:hover {
+      background: var(--primary-light);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 20px;
+      padding-top: 120px; /* space for fixed navbar */
+    }
+
+    /* Page Heading */
+    .page-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .page-header h1 {
+      font-size: 2.8em;
+      font-weight: 700;
+      color: var(--primary); /* Blue heading */
+      margin-bottom: 10px;
+    }
+
+    .page-header h1 span {
+      color: #1565c0;
+    }
+
+    .page-header p {
+      font-size: 1.1em;
+      color: #2c3e50;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+      font-weight: bold; /* Bold description */
+    }
+
+    /* Top Statistics Grid */
+    .top-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+      margin-bottom: 60px;
+    }
+
+    .stat-card {
+      background-color: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      border: 1px solid #eef2f6;
+    }
+
+    .stat-card .icon {
+      font-size: 2.5em;
+      margin-bottom: 15px;
+    }
+
+    .stat-card.cgpa .icon { color: #f39c12; }
+    .stat-card.rank .icon { color: #9b59b6; }
+    .stat-card.publications .icon { color: #3498db; }
+    .stat-card.competitions .icon { color: #e74c3c; }
+
+    .stat-card .number {
+      font-size: 2.2em;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 5px;
+    }
+
+    .stat-card .label {
+      font-size: 0.9em;
+      color: #7f8c8d;
+    }
+
+    /* Journey Highlights */
+    .journey-highlights {
+      background-color: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.07);
+      margin-bottom: 60px;
+      text-align: center;
+      border: 1px solid #eef2f6;
+    }
+
+    .journey-highlights h2 {
+      font-size: 2em;
+      color: #3498db;
+      margin-bottom: 30px;
+    }
+
+    .journey-stats {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 30px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 25px;
+      flex-wrap: wrap;
+    }
+
+    .journey-stat-item {
+      text-align: center;
+      flex: 1;
+      min-width: 150px;
+      margin-bottom: 15px;
+    }
+
+    .journey-stat-item .value {
+      font-size: 2.5em;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 5px;
+    }
+
+    .journey-stat-item .sub-label {
+      font-size: 0.9em;
+      color: #7f8c8d;
+      margin-top: 5px;
+    }
+
+    .journey-highlights .description {
+      font-size: 1em;
+      line-height: 1.7;
+      color: #555;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Achievement Cards */
+    .achievement-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 30px;
+    }
+
+    .achievement-card {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+      display: flex;
+      gap: 20px;
+      border: 1px solid #eef2f6;
+    }
+
+    .achievement-card .icon-wrapper {
+      width: 100px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.8em;
+      color: white;
+    }
+
+    .achievement-card.scholarship .icon-wrapper { background-color: #9b59b6; }
+    .achievement-card.library .icon-wrapper { background-color: #2ecc71; }
+    .achievement-card.deans-list .icon-wrapper { background-color: #3498db; }
+    .achievement-card.leader .icon-wrapper { background-color: #9b59b6; }
+
+    .achievement-card .content { flex-grow: 1; }
+
+    .achievement-card .title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .achievement-card .title {
+      font-size: 1.4em;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    .achievement-card .year {
+      font-size: 0.9em;
+      font-weight: 500;
+      color: #7f8c8d;
+      background-color: #f2f4f8;
+      padding: 4px 8px;
+      border-radius: 5px;
+    }
+
+    .achievement-card .category {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.85em;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .achievement-card .category.academic { background-color: #d1e7dd; color: #155724; }
+    .achievement-card .category.honor { background-color: #cfe2ff; color: #084298; }
+    .achievement-card .category.leadership { background-color: #d6d8ec; color: #403b87; }
+
+    .achievement-card .description {
+      font-size: 0.95em;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .page-header h1 { font-size: 2.2em; }
+      .achievement-grid { grid-template-columns: 1fr; }
+      .achievement-card { flex-direction: column; text-align: center; align-items: center; }
+      .achievement-card .title-row { flex-direction: column; gap: 5px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="logo">Portfolio</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="project.html">Projects</a>
+      <a href="experience.html">Experience</a>
+      <a href="skill.html">Skills</a>
+      <a href="certificate.html">Certifications</a>
+      <a href="research.html">Research</a>
+      <a href="education.html">Education</a>
+      <a href="achievement.html" class="active">Achievements</a>
+    </nav>
+    <a href="contact.html" class="btn">Contact</a>
+  </header>
+
+  <!-- Page Content -->
+  <div class="container">
+    <!-- Page Header -->
+    <section class="page-header">
+      <h1>Academic <span>Achievements</span></h1>
+      <p>Recognition for academic excellence, research contributions, and leadership in the Computer Science Engineering program and beyond.</p>
+    </section>
+
+    <!-- Top Stats -->
+<section class="top-stats-grid">
+  <div class="stat-card cgpa">
+    <i class="fas fa-star icon"></i>
+    <div class="number">3.88/4.0</div>
+    <div class="label">CGPA</div>
+  </div>
+  <div class="stat-card rank">
+    <i class="fas fa-trophy icon"></i>
+    <div class="number">2nd</div>
+    <div class="label">Class Rank</div>
+  </div>
+  <div class="stat-card publications">
+    <i class="fas fa-book-open icon"></i>
+    <div class="number">2</div>
+    <div class="label">Publications</div>
+  </div>
+  <div class="stat-card competitions">
+    <i class="fas fa-medal icon"></i>
+    <div class="number">5</div>
+    <div class="label">Competitions Won</div>
+  </div>
+</section>
+
+<style>
+.top-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  margin: 40px 0;
+}
+
+.stat-card {
+  background-color: #f4f6fa;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid #ddd;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.stat-card .icon {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #3498db; /* default color */
+}
+
+.stat-card.cgpa .icon { color: #f39c12; }
+.stat-card.rank .icon { color: #e74c3c; }
+.stat-card.publications .icon { color: #2ecc71; }
+.stat-card.competitions .icon { color: #9b59b6; }
+
+.stat-card .number {
+  font-size: 2em;
+  font-weight: 700;
+  color: #0d47a1;
+  margin-bottom: 5px;
+}
+
+.stat-card .label {
+  font-size: 0.9em;
+  color: #555;
+  font-weight: 500;
+}
+</style>
+
+
+    <!-- Journey -->
+<section class="journey-highlights">
+  <h2>Academic Journey Highlights</h2>
+  <div class="journey-stats">
+    <div class="journey-stat-item">
+      <div class="value">3.88</div>
+      <div class="label">Current CGPA</div>
+      <div class="sub-label">Out of 4.0</div>
+    </div>
+    <div class="journey-stat-item">
+      <div class="value">Top 3%</div>
+      <div class="label">Department Ranking</div>
+      <div class="sub-label">Among 720 students</div>
+    </div>
+    <div class="journey-stat-item">
+      <div class="value">1st Semester</div>
+      <div class="label">Dean's List</div>
+      <div class="sub-label">Consecutive semesters</div>
+    </div>
+  </div>
+  <p class="description">
+    My academic journey has been marked by consistent excellence, innovative thinking, and a commitment to pushing
+    the boundaries of computer science through research and practical applications. Each achievement represents
+    dedication to learning and contributing to the field of technology.
+  </p>
+</section>
+
+<style>
+.journey-highlights {
+  background-color: #f8faff;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.journey-highlights h2 {
+  font-size: 2.5em;
+  color: #0d47a1;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.journey-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.journey-stat-item {
+  background-color: #ffffff;
+  padding: 25px 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  width: 220px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.journey-stat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.journey-stat-item .value {
+  font-size: 2em;
+  font-weight: 700;
+  color: #e67e22;
+  margin-bottom: 10px;
+}
+
+.journey-stat-item .label {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #0d47a1;
+  margin-bottom: 5px;
+}
+
+.journey-stat-item .sub-label {
+  font-size: 0.85em;
+  color: #777;
+}
+
+.journey-highlights .description {
+  font-size: 1em;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #555;
+  line-height: 1.6;
+  font-weight: 500;
+}
+.journey-stat-item .sub-label {
+  font-size: 0.95em;       /* slightly bigger */
+  color: #0d47a1;          /* primary color for emphasis */
+  font-weight: 600;        /* semi-bold */
+  margin-top: 3px;         /* spacing from label */
+  display: block;           /* ensures it's on its own line */
+}
+</style>
+
+
+    <!-- Achievements -->
+    <section class="achievement-grid">
+      <div class="achievement-card scholarship">
+        <div class="icon-wrapper"><i class="fas fa-trophy"></i></div>
+        <div class="content">
+          <div class="title-row">
+            <div class="title">Merit Scholarship Recipient</div>
+            <span class="year">2023-2024</span>
+          </div>
+          <span class="category academic">Academic Excellence</span>
+          <p class="description">
+            Awarded merit-based scholarship for outstanding academic performance and maintaining top 5% ranking in Computer Science.
+          </p>
+        </div>
+      </div>
+
+      <div class="achievement-card library">
+        <div class="icon-wrapper"><i class="fas fa-book"></i></div>
+        <div class="content">
+          <div class="title-row">
+            <div class="title">Best Library User Award</div>
+            <span class="year">2023</span>
+          </div>
+          <span class="category academic">Academic Recognition</span>
+          <p class="description">
+            Recognized for exceptional utilization of library resources and contributing to the academic community through knowledge sharing.
+          </p>
+        </div>
+      </div>
+
+      <div class="achievement-card deans-list">
+        <div class="icon-wrapper"><i class="fas fa-award"></i></div>
+        <div class="content">
+          <div class="title-row">
+            <div class="title">Dean's List Award</div>
+            <span class="year">2022-2024</span>
+          </div>
+          <span class="category honor">Academic Honors</span>
+          <p class="description">
+            Consistently maintained high academic standards and earned placement on the Dean's List for multiple consecutive semesters.
+          </p>
+        </div>
+      </div>
+
+      <div class="achievement-card leader">
+        <div class="icon-wrapper"><i class="fas fa-user-friends"></i></div>
+        <div class="content">
+          <div class="title-row">
+            <div class="title">Outstanding Student Leader</div>
+            <span class="year">2023</span>
+          </div>
+          <span class="category leadership">Leadership</span>
+          <p class="description">
+            Recognized for exceptional leadership in organizing technical events and mentoring junior students in programming and project development.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education Section</title>
+  <style>
+    :root {
+      --primary: #0d47a1;
+      --primary-light: #1565c0;
+      --text-dark: #222;
+      --white: #ffffff;
+      --bg-light: #f4f6fa;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navbar */
+    header {
+      background: var(--white);
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header .logo {
+      font-size: 1.4em;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    header nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+
+    header nav a:hover,
+    header nav a.active {
+      background: var(--primary-light);
+      color: var(--white);
+    }
+
+    header .btn {
+      padding: 8px 15px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 5px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    header .btn:hover {
+      background: var(--primary-light);
+    }
+
+    /* Education Section */
+    .education-section {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .education-section h2 {
+      text-align: center;
+      color: var(--primary);
+      font-size: 2.5em;
+      margin-bottom: 40px;
+      font-weight: 700;
+    }
+
+    .edu-grid {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      padding-left: 40px;
+    }
+
+    .edu-grid::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--primary-light);
+      border-radius: 2px;
+    }
+
+    .edu-card {
+      background-color: var(--bg-light);
+      border-radius: 8px;
+      padding: 20px 25px;
+      margin-bottom: 30px;
+      position: relative;
+      border-left: 6px solid var(--primary);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .edu-card:hover {
+      transform: translateX(5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .edu-card::before {
+      content: '';
+      position: absolute;
+      left: -33px;
+      top: 25px;
+      width: 15px;
+      height: 15px;
+      background: var(--primary);
+      border-radius: 50%;
+      border: 3px solid var(--white);
+    }
+
+    .edu-card h3 {
+      margin: 0 0 5px 0;
+      color: var(--text-dark);
+      font-size: 1.4em;
+      font-weight: 700;
+    }
+
+    .edu-card span.year {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--white);
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+    }
+
+    .edu-card p.institution {
+      color: #555;
+      font-weight: 600;
+      margin-bottom: 5px;
+      font-size: 0.95em;
+    }
+
+    .edu-card p.description {
+      color: #333;
+      font-size: 0.9em;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .edu-grid {
+        padding-left: 20px;
+      }
+
+      .edu-card::before {
+        left: -25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="logo">Portfolio</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="project.html">Projects</a>
+      <a href="experience.html">Experience</a>
+      <a href="skill.html">Skills</a>
+      <a href="certificate.html">Certifications</a>
+      <a href="research.html">Research</a>
+      <a href="education.html" class="active">Education</a>
+      <a href="achivement.html">Achievements</a>
+    </nav>
+    <a href="contact.html" class="btn">Contact</a>
+  </header>
+
+  <!-- Education Section -->
+<section class="education-section">
+  <h2>Education</h2>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <span class="year">2022 - June 2026</span>
+      <h3>BSc in CSE</h3>
+      <p class="institution"><strong>Daffodil International University</strong></p>
+      <p class="description">CGPA: <span class="highlight">3.88</span></p>
+    </div>
+
+    <div class="edu-card">
+      <span class="year">2018 - 2020</span>
+      <h3>HSC</h3>
+      <p class="institution"><strong>Savar Govt. College</strong></p>
+      <p class="description">GPA: <span class="highlight">5.00</span></p>
+    </div>
+
+    <div class="edu-card">
+      <span class="year">2016 - 2018</span>
+      <h3>SSC</h3>
+      <p class="institution"><strong>Savar Girls High School</strong></p>
+      <p class="description">GPA: <span class="highlight">4.91</span></p>
+    </div>
+
+    <div class="edu-card">
+      <span class="year">2013 - 2015</span>
+      <h3>JSC</h3>
+      <p class="institution"><strong>Savar Girls High School</strong></p>
+      <p class="description">GPA: <span class="highlight">5</span></p>
+    </div>
+
+    <div class="edu-card">
+      <span class="year">2009 - 2012</span>
+      <h3>PSC</h3>
+      <p class="institution"><strong>Khaserchar Govt. School</strong></p>
+      <p class="description">GPA: <span class="highlight">5</span></p>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Highlighted Institution & CGPA */
+.edu-card .institution strong {
+  color: #0d47a1;
+  font-size: 1.1em;
+}
+
+.edu-card .description .highlight {
+  color: #2522e6;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+/* Optional: add subtle icon for CGPA */
+.edu-card .description::before {
+  content: "⭐ ";
+  color: #260ff1;
+}
+</style>
+
+</body>
+
+</html>

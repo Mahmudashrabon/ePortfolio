@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Skills</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet" />
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0d47a1; /* Blue for SKILLS */
+      --primary-dark: #0b357a; /* Dark blue for card titles */
+      --primary-light: #1565c0;
+      --text-dark: #222;
+      --white: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      background: #fff;
+      color: #121121;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Navbar */
+    header {
+      background: var(--white);
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header .logo {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    header nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: bold;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+
+    header nav a:hover {
+      background: var(--primary-light);
+      color: var(--white);
+    }
+
+    header nav a.active {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    header .btn {
+      padding: 8px 15px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 5px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    header .btn:hover {
+      background: var(--primary-light);
+    }
+
+    /* Page title */
+    .page-header {
+      max-width: 1020px;
+      margin: 70px auto 50px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .page-header h1 {
+      margin: 0;
+      font-size: 2.7rem;
+      letter-spacing: 2px;
+      color: var(--primary); /* Blue SKILLS */
+      text-align: center;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #444;
+      font-size: 1.1rem;
+      font-weight: bold; /* Bold subtitle */
+      margin-bottom: 38px;
+      max-width: 1020px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Skills grid */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      max-width: 1020px;
+      margin: 0 auto;
+    }
+
+    .skill-card {
+      background: #f9f9f9;
+      border-radius: 20px;
+      padding: 34px 32px;
+      box-shadow: 0 3px 20px #00000015;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 250px;
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+      color: var(--primary-dark); /* Dark blue card titles */
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .skill-item {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 10px 18px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 4px;
+      box-shadow: 0 2px 8px #00000010;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .skill-item i {
+      color: #117af5;
+    }
+
+    .skill-item:hover {
+      background: #117af5;
+      color: #fff;
+    }
+
+    .skill-item:hover i {
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="logo">Portfolio</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="project.html">Projects</a>
+      <a href="experience.html">Experience</a>
+      <a href="skill.html" class="active">Skills</a>
+      <a href="certificate.html">Certifications</a>
+      <a href="research.html">Research</a>
+      <a href="education.html">Education</a>
+      <a href="achivement.html">Achievements</a>
+    </nav>
+    <a href="contact.html" class="btn">Contact</a>
+  </header>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1>SKILLS</h1>
+  </div>
+
+  <div class="subtitle">
+    A collection of my technical skills and expertise honed through various projects and experiences
+  </div>
+
+  <!-- Skills Grid -->
+  <div class="skills-container">
+    <div class="skill-card">
+      <div class="card-title">Frontend</div>
+      <div class="skill-list">
+        <div class="skill-item"><i class="fab fa-html5"></i> HTML</div>
+        <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS</div>
+        <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
+        <div class="skill-item"><i class="fab fa-bootstrap"></i> Bootstrap</div>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="card-title">Backend</div>
+      <div class="skill-list">
+        <div class="skill-item"><i class="fas fa-database"></i> MySQL</div>
+        <div class="skill-item"><i class="fas fa-database"></i> MongoDB</div>
+        <div class="skill-item"><i class="fas fa-database"></i> PostgreSQL</div>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="card-title">Languages</div>
+      <div class="skill-list">
+        <div class="skill-item"><i class="fas fa-code"></i> C</div>
+        <div class="skill-item"><i class="fas fa-code"></i> C++</div>
+        <div class="skill-item"><i class="fab fa-java"></i> Java</div>
+        <div class="skill-item"><i class="fab fa-python"></i> Python</div>
+        <div class="skill-item"><i class="fas fa-code"></i> C-Sharp</div>
+        <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="card-title">Tools</div>
+      <div class="skill-list">
+        <div class="skill-item"><i class="fab fa-git-alt"></i> Git</div>
+        <div class="skill-item"><i class="fab fa-github"></i> GitHub</div>
+        <div class="skill-item"><i class="fas fa-code"></i> VS Code</div>
+        <div class="skill-item"><i class="fab fa-figma"></i> Figma</div>
+        <div class="skill-item"><i class="fas fa-paint-brush"></i> Canva</div>
+        <div class="skill-item"><i class="fas fa-code"></i> PyCharm</div>
+  <div class="skill-item"><i class="fas fa-book"></i> Jupyter Notebook</div>
+  <div class="skill-item"><i class="fas fa-cogs"></i> Eclipse</div>
+  <div class="skill-item"><i class="fas fa-lightbulb"></i> IntelliJ IDEA</div>
+
+  <!-- AI/ML & Data Tools -->
+  <div class="skill-item"><i class="fas fa-robot"></i> TensorFlow</div>
+  <div class="skill-item"><i class="fas fa-brain"></i> PyTorch</div>
+  <div class="skill-item"><i class="fas fa-project-diagram"></i> Keras</div>
+  <div class="skill-item"><i class="fas fa-image"></i> OpenCV</div>
+  <div class="skill-item"><i class="fas fa-chart-line"></i> Scikit-learn</div>
+  <div class="skill-item"><i class="fas fa-calculator"></i> MATLAB</div>
+
+  <!-- Cloud & DevOps Tools -->
+  <div class="skill-item"><i class="fas fa-cloud"></i> AWS</div>
+  <div class="skill-item"><i class="fas fa-cloud"></i> Azure</div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
